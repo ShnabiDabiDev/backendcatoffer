@@ -34,6 +34,6 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   socket.on('sendmeasseage', (data) => {
-    io.emit('createmeassage', {text})
+    io.emit('createmeassage', {usertext: data})
   })
 });
