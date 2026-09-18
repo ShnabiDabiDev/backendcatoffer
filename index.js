@@ -15,6 +15,7 @@ app.use(cors({
 }));
 
 const { Server } = require('socket.io');
+const { text } = require('stream/consumers');
 
 const io = new Server(server, {
   cors: {
@@ -34,8 +35,6 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   socket.on('sendmeassage', (data) => {
-    io.emit('createmeassage', {
-      text: data.text
-    })
+    io.emit('createmeassage', data)
   })
 });
