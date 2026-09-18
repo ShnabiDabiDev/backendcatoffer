@@ -9,7 +9,7 @@ const cors = require('cors');
 app.use(express.json());
 
 app.use(cors({
-  origin: "",
+  origin: "backendcatoffer-production.up.railway.app",
   methods: ["GET", "POST"],
   credentials: true
 }));
