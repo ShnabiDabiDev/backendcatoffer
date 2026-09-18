@@ -33,7 +33,9 @@ app.get('/', (req, res) => {
 })
 
 io.on('connection', (socket) => {
-  socket.emit('hifromserver', {
-    message: 'Hello from server!'
-  });
+  socket.on('sendmeassage', (data) => {
+    io.emit('createmeassage', {
+      text: data.text
+    })
+  })
 });
